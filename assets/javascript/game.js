@@ -1,34 +1,83 @@
 
-var random_result;
-var lost;
-var win;
+var randomResult;
+var lose = 0;
+var win = 0;
+var  counter = 0;
 
-random_result = Math.floor(Math.random() * 101 ) + 19;
+var startReset = function () {
 
-// console.log(random_result);
+    $(".crystals").empty();
 
-$("#result").html('Random Result: ' + random_result);
-for(var i = 0; i < 4; i++){
+    var images = [
+            'https://www.pngfind.com/pngs/m/104-1045437_the-legend-of-zelda-clipart-rupee-color-rupee.png',
+            'https://cdn.imgbin.com/21/10/14/imgbin-the-legend-of-zelda-ocarina-of-time-link-indian-rupee-the-legend-of-zelda-breath-of-the-wild-rupee-NNZJNHbKrMLcw7ecUXaf1F1Qq.jpg',
+            'https://www.pngfind.com/pngs/m/62-629044_the-legend-of-zelda-clipart-rupee-color-legend.png',
+            'https://cdn.imgbin.com/1/13/18/imgbin-the-legend-of-zelda-skyward-sword-the-legend-of-zelda-twilight-princess-hd-indian-rupee-link-rupee-CRTdwmYn8EyyuzX19YcMQECrD.jpg'];
+
+    randomResult = Math.floor(Math.random() * 101 ) + 19;
+ 
+    $("#result").html('Random Result: ' + randomResult);
+    for(var i = 0; i < 4; i++){
+       
+        var random = Math.floor(Math.random() * 11) + 1;
+    
+        var crystal = $("<div>");
+            crystal.attr({
+                "class": 'crystal',
+                "data-random": random
+            });
+            crystal.css({
+                "background-image":"url('" + images[i] + "')",
+                "background-size":"cover"
+            })
+    
+            $(".crystals").append(crystal);
+    
+    }
+
+    $("#counter").html("Total Score: ", + counter);
+}    
+
+startReset();
+
+
+//event delegation
+$(document).on('click', ".crystal", function() {
    
-    var random = Math.floor(Math.random() * 11) + 1;
-    // console.log(random);
+    var num = parseInt($(this).attr('data-random'));
+
+    counter += num;
 
 
-    var crystal = $("<div>");
-        crystal.attr({
-            "class": 'crystal',
-            "data-random": random
-        });
+    $("#counter").html("Total Score: " + counter);
 
-    $(".crystals").append(crystal);
+    console.log(counter);
 
-}
+   if(counter > randomResult){
 
+        lose++; 
 
+        $("#lose").html("You Lost: " + lose);
 
-$(".crystal").on('click', function() {
-   
-    console.log($(this).attr('data-random'));
+        console.log("you lose!");
+
+        counter = 0;
+
+        startReset();
+
+   }
+    else if( counter === randomResult){
+
+        win++;
+
+        $("#win").html("You Won: " + win);
+
+        console.log("you win!");
+
+        counter = 0;
+
+        startReset();
+    }
 
 });
 

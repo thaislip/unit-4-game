@@ -1,5 +1,40 @@
 
 
+.rules{
+    width:300px;
+    border:5px solid teal;
+    padding:15px;
+    margin:20px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    background-color:grey;
+}
+
+body{
+    background-image: url("https://www.zeldadungeon.net/wiki/images/thumb/c/ca/OoT3D-Hyrule-Field.png/300px-OoT3D-Hyrule-Field.png");
+    height: 20%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    float:left;
+
+}
+
+header{
+    background-color:teal;
+    float:left;
+    padding:20px;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:25px;
+
+}
+
+
 .crystals{
     display: flex;
     justify-content: space-around;
@@ -9,7 +44,22 @@
 
 
 .crystal{
-    border:1px solid green;
+    border:2px solid black;
     height:200px;
     width:200px;
+    border-radius:4px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 1s, transform 2s;
+}
+
+.crystal:hover{
+    box-shadow: 15px 15px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: box-shadow 1s;
+    transform: translate(5px,10px);
+
+}
+
+img{
+    width:50px;
 }
