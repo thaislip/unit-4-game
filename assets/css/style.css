@@ -13,7 +13,7 @@
 
 body{
     background-image: url("https://www.zeldadungeon.net/wiki/images/thumb/c/ca/OoT3D-Hyrule-Field.png/300px-OoT3D-Hyrule-Field.png");
-    height: 20%;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -63,3 +63,29 @@ header{
 img{
     width:50px;
 }
+
+#result{
+    padding:10px;
+    border: 5px solid teal;
+    float:left;
+    background-color:grey;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.scoreboard{
+    padding:10px;
+    border: 5px solid teal;
+    float:left;
+    background-color:grey;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+footer{
+    text-align:center;
+    font-size:10px;
+}
+
